@@ -1,0 +1,47 @@
+
+- Create a new Laravel project via the Composer create-project command:
+composer create-project laravel/laravel laravel_testes
+
+
+-- instalar o debugg geral e também de sql
+composer require barryvdh/laravel-debugbar --dev
+
+- Application Overview
+php artisan about
+
+
+- Generating Model Classes
+php artisan make:model Pessoa
+
+- If you would like to generate a database migration when you generate the model, you may use the --migration or -m option:
+php artisan make:model Pessoa --migration
+
+
+# Generate a model and a FlightController class...
+php artisan make:model Pessoa --controller
+
+
+- Migrate
+php artisan help migrate
+php artisan migrate:status
+php artisan migrate
+
+- php artisan list
+ migrate
+  migrate:fresh           Drop all tables and re-run all migrations
+  migrate:install         Create the migration repository
+  migrate:refresh         Reset and re-run all migrations
+  migrate:reset           Rollback all database migrations
+  migrate:rollback        Rollback the last database migration
+  migrate:status          Show the status of each migration
+  
+  
+- Criar um controller
+php artisan make:controller PessoaController
+
+- Creating Form Requests to validation - class de request para validação
+php artisan make:request PessoaRequest
+
+
+- This command will place the views in your application's resources/views/vendor/pagination directory
+php artisan vendor:publish --tag=laravel-pagination
