@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PessoaRequest;
+use App\Jobs\CriarPessoas;
 use App\Models\Pessoa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -75,5 +76,11 @@ class PessoaController extends Controller
 
     return to_route('pessoa.index')
       ->with('mensagem.sucesso', "Série '{$pessoa->pes_nom}' removida com sucesso");
+  }
+
+  public function executarjob()
+  {
+    CriarPessoas::dispatch();
+    //return redirect('pessoas');
   }
 }

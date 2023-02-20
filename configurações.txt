@@ -9,6 +9,9 @@ composer require barryvdh/laravel-debugbar --dev
 - Application Overview
 php artisan about
 
+- rodar npm install para instalar as depenicas como o VITE - Não usar
+npm install
+npm run dev
 
 - Generating Model Classes
 php artisan make:model Pessoa
@@ -45,3 +48,33 @@ php artisan make:request PessoaRequest
 
 - This command will place the views in your application's resources/views/vendor/pagination directory
 php artisan vendor:publish --tag=laravel-pagination
+
+
+- ao executar "php artisan db" > erro TTY mode is not supported on Windows platform.
+composer require --dev laravel/dusk
+php artisan dusk:install
+php artisan dusk --group=f
+
+
+
+-- Processamento de Fila de execução - Queues database
+	- https://blog.especializati.com.br/queues-no-laravel-filas/
+QUEUE_CONNECTION=database - QUEUE_CONNECTION variable in your application's .env
+php artisan queue:table
+php artisan migrate
+
+php artisan make:job CriarPessoas
+
+- colocar no código para inserir na fila de execução com o "php artisan queue:work" 
+CriarPessoas::dispatch();
+
+-- executar a queue fila
+php artisan queue:work
+
+
+-- executar schedule - executar o job com o schedule de tempo em tempo para colocar na fila de execução. Dois CMD aberto
+	- 1 para o schedule > php artisan schedule:work
+	- 2 para a fila de execução > php artisan queue:work
+	-- https://benborgers.com/posts/laravel-schedule-job-daily
+php artisan schedule:work
+

@@ -20,6 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 //Route::get('/pessoas/teste', [PessoaController::class, 'teste']);
+Route::get('/pessoas/executarjob', [PessoaController::class, 'executarjob']);
 Route::resource('/pessoas', PessoaController::class)
   ->names('pessoa')
   ->except(['show']);
