@@ -78,9 +78,8 @@ class PessoaController extends Controller
       ->with('mensagem.sucesso', "Série '{$pessoa->pes_nom}' removida com sucesso");
   }
 
-  public function executarjob()
+  public function executarjob() // enviar método para fila de execução
   {
     CriarPessoas::dispatch();
-    //return redirect('pessoas');
   }
 }
